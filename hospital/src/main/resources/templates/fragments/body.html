@@ -32,15 +32,15 @@
             Pacientes
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'enfermeiros'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/home}">
+            class="nav-item nav-link" th:href="@{/obras}">
             Enfermeiros
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'recepcionistas'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/home}">
+            class="nav-item nav-link" th:href="@{/obras}">
             Recepcionistas
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'documentos'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/home}">
+            class="nav-item nav-link" th:href="@{/obras}">
             Documentos
         </a>
     </div>
@@ -48,14 +48,15 @@
     <!-- Botão Sair da página Home + identificação do usuário -->
     <!-- class="btn btn-outline-success my-2 my-sm-0" -->
     <!-- th:action="@{/auth/logout}" method="POST"> -->
-    <!-- <form th:fragment="sair(titulo)" class="form-inline my-2 my-lg-0" 
-            th:action="@{/home}" method="POST">
+    <!-- <form>th:action="@{/obras}</form>" -->
+    <a th:fragment="sair(titulo)" class="form-inline my-2 my-lg-0" 
+            th:href="@{/obras}" method="POST">
         <span sec:authorize="isAuthenticated()" sec:authentication="name" 
             style="margin-right: 3px; font-size: 0.8em;"></span>
         <button class="btn btn-outline-secondary my-0 my-sm-0" type="submit" title="Sair">
             <img th:src="@{/imagens/sair.png}" alt="Sair"/> Sair
         </button>
-    </form>  -->
+    </a> 
 
     <!-- Título do card da página+ -->
     <div class="card-header" th:fragment="titulo(titulo)" th:text="${titulo}"></div>
