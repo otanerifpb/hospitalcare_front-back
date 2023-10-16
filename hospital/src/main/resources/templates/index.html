@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layout/layout}"
     th:with="titulo1='Página Principal', titulo2='Hospital Care'">
+    <!-- layout:decorate="~{layout/layout}" -->
 <head>
-    <!-- <meta th:insert="~{/fragments/head :: head(${titulo1}, ~{::link})}"> -->
     <meta th:insert="~{/fragments/head :: head(${titulo1})}">
 </head>
 <body>
