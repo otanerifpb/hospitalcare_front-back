@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.edu.ifpb.pdist.hospital.model.Medico;
+
 @Controller
 @RequestMapping("/medicos")
 public class MedicoController {
@@ -24,4 +26,12 @@ public class MedicoController {
         mav.setViewName("medicos/listMedico");
         return mav;
     } 
+
+    // Rota para acessar o formunário
+    @RequestMapping("/formMedico")
+    public ModelAndView getFormEstu(Medico medico, ModelAndView mav) {
+        mav.addObject("medico", medico);
+        mav.setViewName("medicos/formMedico");
+        return mav;
+    }
 }
