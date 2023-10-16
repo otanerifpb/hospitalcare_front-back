@@ -32,15 +32,15 @@
             Pacientes
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'enfermeiros'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/obras}">
+            class="nav-item nav-link" th:href="@{/enfermeiros}">
             Enfermeiros
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'recepcionistas'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/obras}">
+            class="nav-item nav-link" th:href="@{/recepcionistas}">
             Recepcionistas
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'documentos'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/obras}">
+            class="nav-item nav-link" th:href="@{/documentos}">
             Documentos
         </a>
     </div>

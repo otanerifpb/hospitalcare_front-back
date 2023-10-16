@@ -50,6 +50,20 @@
                     <td th:text="${medico.dataNascimento}" style="text-align: center;"></td>
                     <td th:text="${medico.Especialidade}" style="text-align: center;"></td>
                     <td th:text="${medico.Telefone}" style="text-align: center;"></td>
+                    <td>
+                        <form th:action="@{/medicos/{id}(id=${medico.id})}" method="GET">
+                            <button class="btn btn-outline-secondary btn-sm" type="submit" title="Editar">
+                                <img th:src="@{/imagens/editar.png}" alt="Editar"/>
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="@{/medicos/{id}/delete(id=${medico.id})}">
+                            <button class="btn btn-outline-secondary btn-sm" type="submit" title="Excluir">
+                                <img th:src="@{/imagens/lixeira1.jpg}" alt="Excluir"/>
+                            </button>
+                        </form>
+                    </td>
                 </tbody>
             </table>
             

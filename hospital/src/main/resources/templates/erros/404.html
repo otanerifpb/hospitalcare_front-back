@@ -17,14 +17,23 @@
     <link th:href="@{/css/auth.css}" rel="stylesheet">
     <title>Error - 404</title>
 </head>
-<body class="text-center">
-    <form class="form-signin" th:action="@{/auth}"  method="POST">
-        <div class="centered"></br>
-            <h1>404 Not Found</h1></br>
-            <img class="mb-4" th:src="@{/imagens/obra.jpg}" alt="Acesso Proibido"></img></br>
-            <h2>Desculpe os transtornos, página em desenvolvimento!!</h2>
-            <h2>Entre em contato com o administrador para mais detalhes!!</h2>
-        </div>
-    </form>
+<body>
+    <div th:replace="~{/fragments/body :: logo(titulo='HospitalCare')}"></div>
+
+    <nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
+        <div th:replace="~{/fragments/body :: menu}"></div>
+        <div th:replace="~{/fragments/body :: sair(titulo='Sair')}"></div> 
+    </nav>
+
+    <div class="text-center">
+        <form class="form-signin" th:action="@{/auth}"  method="POST">
+            <div class="centered">
+                <h1>404 Not Found</h1>
+                <img class="mb-4" th:src="@{/imagens/obra.jpg}" alt="Acesso Proibido"></img></br>
+                <h2>Desculpe os transtornos, página em desenvolvimento!!</h2>
+                <h2>Entre em contato com o administrador para mais detalhes!!</h2>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
