@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Past;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,6 +35,7 @@ public class Medico implements Serializable {
     private String sexo;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Past(message = "Data deve ser no passado")
     private Date dataNascimento;
 
     private String especialidade;

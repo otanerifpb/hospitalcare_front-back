@@ -48,20 +48,21 @@
                         <td th:text="${medico.nome != null and medico.nome != '' ?medico.nome: 'Anônimo'}"></td>
                         <td th:text="${medico.CRM}" style="text-align: center;"></td>
                         <td th:text="${medico.sexo}" style="text-align: center;"></td>
-                        <td th:text="${medico.dataNascimento}" style="text-align: center;"></td>
+                        <td th:text="${#dates.format(medico.dataNascimento, 'dd ''de'' MMMM ''de'' yyyy')}" 
+                            style="text-align: center;"></td>
                         <td th:text="${medico.Especialidade}" style="text-align: center;"></td>
                         <td th:text="${medico.Telefone}" style="text-align: center;"></td>
                         <td>
                             <form th:action="@{/medicos/{id}(id=${medico.id})}" method="GET">
                                 <button class="btn btn-outline-secondary btn-sm" type="submit" title="Editar">
-                                    <img th:src="@{/imagens/editar.png}" alt="Editar"/>
+                                    <img th:src="@{/imagens/editar.png}" alt="Editar"/> Editar
                                 </button>
                             </form>
                         </td>
                         <td>
                             <form th:action="@{/medicos/{id}/delete(id=${medico.id})}">
                                 <button class="btn btn-outline-secondary btn-sm" type="submit" title="Excluir">
-                                    <img th:src="@{/imagens/lixeira1.jpg}" alt="Excluir"/>
+                                    <img th:src="@{/imagens/lixeira1.jpg}" alt="Excluir"/> Excluir
                                 </button>
                             </form>
                         </td>
