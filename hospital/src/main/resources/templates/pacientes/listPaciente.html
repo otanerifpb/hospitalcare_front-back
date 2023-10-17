@@ -63,9 +63,10 @@
                                 </form>
                             </div>
                             <div th:unless="${not #lists.isEmpty(paciente.anamnese)}">
-                                <a th:href="@{/pacientes/{id}/listAnamineses(id=${paciente.id})}" >
+                                <!-- <a th:href="@{/pacientes/{id}/listAnamineses(id=${paciente.id})}" >
                                     <p>Sem PDF</p>
-                                </a>
+                                </a> -->
+                                <p>Sem PDF</p>
                             </div>
                         </td>
                         <td class="text-center">
@@ -77,9 +78,10 @@
                                 </form>
                             </div>
                             <div th:unless="${not #lists.isEmpty(paciente.prontuario)}">
-                                <a th:href="@{/pacientes/{id}/listProntuarios(id=${paciente.id})}" >
+                                <!-- <a th:href="@{/pacientes/{id}/listProntuarios(id=${paciente.id})}" >
                                     <p>Sem PDF</p>
-                                </a>
+                                </a> -->
+                                <p>Sem PDF</p>
                             </div>
                         </td>
                         <td>
