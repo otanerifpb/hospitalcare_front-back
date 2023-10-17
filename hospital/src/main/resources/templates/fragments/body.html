@@ -86,9 +86,14 @@
             <p th:if="${#fields.hasErrors('CRM')}" th:errorclass="error" th:errors="*{CRM}"></p>
         </div>
         <div class="form-group mx-sm-0 mb-2">
-            <label for="sexo" class="form-label">Sexo:</label>
-            <input type="text" class="form-control" th:field="*{sexo}" />
-            <p th:if="${#fields.hasErrors('sexo')}" th:errorclass="error" th:errors="*{sexo}"></p>
+             <label for="sexo" class="form-label">Sexo:</label>
+             <!--<input type="text" class="form-control" th:field="*{sexo}" />
+            <p th:if="${#fields.hasErrors('sexo')}" th:errorclass="error" th:errors="*{sexo}"></p> -->
+            <select th:field="*{sexo}" class="form-select"  >
+                <option th:value="''" th:text="''"></option>
+                <option th:value="'M'" th:text="Masculino"></option>
+                <option th:value="'F'" th:text="Feminino"></option>
+            </select>
         </div>
         <div class="form-group mx-sm-0 mb-2">
             <label for="dataNascimento" class="form-label">Data Nascimento:</label>
@@ -121,9 +126,14 @@
             <p th:if="${#fields.hasErrors('CPF')}" th:errorclass="error" th:errors="*{CPF}"></p>
         </div>
         <div class="form-group mx-sm-0 mb-2">
-            <label for="sexo" class="form-label">Sexo:</label>
-            <input type="text" class="form-control" th:field="*{sexo}" />
-            <p th:if="${#fields.hasErrors('sexo')}" th:errorclass="error" th:errors="*{sexo}"></p>
+             <label for="sexo" class="form-label">Sexo:</label>
+            <!--<input type="text" class="form-control" th:field="*{sexo}" />
+            <p th:if="${#fields.hasErrors('sexo')}" th:errorclass="error" th:errors="*{sexo}"></p> -->
+            <select th:field="*{sexo}" class="form-select"  >
+                <option th:value="''" th:text="''"></option>
+                <option th:value="'M'" th:text="Masculino"></option>
+                <option th:value="'F'" th:text="Feminino"></option>
+            </select>
         </div>
         <div class="form-group mx-sm-0 mb-2">
             <label for="dataNascimento" class="form-label">Data Nascimento:</label>
