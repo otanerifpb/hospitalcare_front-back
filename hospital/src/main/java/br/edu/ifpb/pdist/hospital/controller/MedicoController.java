@@ -1,8 +1,13 @@
 package br.edu.ifpb.pdist.hospital.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +35,18 @@ public class MedicoController {
     // Rota para acessar a lista pelo menu
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView listAll(ModelAndView mav) {
+        List<Medico> opMedicos = medicoRepository.findAll();
+        mav.addObject("medicos", opMedicos);
         mav.setViewName("medicos/listMedico");
         return mav;
     } 
+
+    // Rota para acessar a lista ao usar o REDIRECT
+    @RequestMapping()
+    public String listAll(Model model) {
+        model.addAttribute("medicos", medicoRepository.findAll());
+        return "medicoes/listMedico";
+    }
 
     // Rota para acessar o formunário
     @RequestMapping("/formMedico")
@@ -42,16 +56,19 @@ public class MedicoController {
         return mav;
     }
 
-    // Rota para cadastrar um Estudante no Sitema
+    // Rota para cadastrar um Médico no Sitema
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView save(Medico medico, ModelAndView mav, RedirectAttributes redAttrs) {
-        
-        medicoRepository.save(medico);
-
-        mav.addObject("medicos", medicoRepository.findAll());
-        mav.addObject("succesMensagem", "Médico cadastrado com sucesso!");
-        mav.setViewName("medicos/listMedico");
-
+        Optional<Medico> opCRM = medicoRepository.findByCRM(medico.getCRM());
+        if (opCRM.isPresent()) {
+            redAttrs.addFlashAttribute("errorMensagem", "Médico já cadastrada no sistema!!");
+            mav.setViewName("redirect:/medicos");
+        } else {
+            medicoRepository.save(medico);
+            mav.addObject("medicos", medicoRepository.findAll());
+            mav.addObject("succesMensagem", "Médico cadastrado com sucesso!");
+            mav.setViewName("medicos/listMedico");
+        }
         return mav;
     }
 }
