@@ -34,7 +34,7 @@
                     <thead>
                         <tr>
                             <th>Nome:</th>
-                            <!-- <th style="text-align: center;">CPF:</th> -->
+                            <th style="text-align: center;">CPF:</th>
                             <th style="text-align: center;">Sexo:</th>
                             <th style="text-align: center;">Data Nascimento:</th>
                             <th style="text-align: center;">E-mail:</th>
@@ -47,7 +47,7 @@
 
                 <tbody>
                     <td th:text="${paciente.nome != null and paciente.nome != '' ?paciente.nome: 'Anônimo'}"></td>
-                    <!-- <td th:text="${paciente.CPF}" style="text-align: center;"></td> -->
+                    <td th:text="${paciente.CPF}" style="text-align: center;"></td>
                     <td th:text="${paciente.sexo}" style="text-align: center;"></td>
                     <td th:text="${paciente.dataNascimento}" style="text-align: center;"></td>
                     <td th:text="${paciente.email}" style="text-align: center;"></td>
