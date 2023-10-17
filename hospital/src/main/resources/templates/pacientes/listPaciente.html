@@ -55,28 +55,28 @@
                         <td th:text="${paciente.email}" style="text-align: center;"></td>
                         <td th:text="${paciente.Telefone}" style="text-align: center;"></td>
                         <td class="text-center">
-                            <div th:if="${not #lists.isEmpty(paciente.anamneses)}">
-                                <form th:action="@{/pacientes/{id}/listAnamineses(id=${paciente.id})}" method="GET">
+                            <div th:if="${not #lists.isEmpty(paciente.anamnese)}">
+                                <form th:action="@{/pacientes/{id}/listAnaminese(id=${paciente.id})}" method="GET">
                                     <button class="btn btn-outline-secondary btn-sm " type="submit" title="Declaração">
                                         <img th:src="@{/imagens/documento.png}" alt="Anamnese"/>
                                     </button>
                                 </form>
                             </div>
-                            <div th:unless="${not #lists.isEmpty(paciente.anamneses)}">
+                            <div th:unless="${not #lists.isEmpty(paciente.anamnese)}">
                                 <a th:href="@{/pacientes/{id}/listAnamineses(id=${paciente.id})}" >
                                     <p>Sem PDF</p>
                                 </a>
                             </div>
                         </td>
                         <td class="text-center">
-                            <div th:if="${not #lists.isEmpty(paciente.prontuarios)}">
+                            <div th:if="${not #lists.isEmpty(paciente.prontuario)}">
                                 <form th:action="@{/pacientes/{id}/listProntuarios(id=${paciente.id})}" method="GET">
                                     <button class="btn btn-outline-secondary btn-sm " type="submit" title="Declaração">
                                         <img th:src="@{/imagens/documento.png}" alt="Prontuário"/>
                                     </button>
                                 </form>
                             </div>
-                            <div th:unless="${not #lists.isEmpty(paciente.prontuarios)}">
+                            <div th:unless="${not #lists.isEmpty(paciente.prontuario)}">
                                 <a th:href="@{/pacientes/{id}/listProntuarios(id=${paciente.id})}" >
                                     <p>Sem PDF</p>
                                 </a>

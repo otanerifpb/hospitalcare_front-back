@@ -4,16 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -75,7 +71,7 @@ public class MedicoController {
 
     // Rota para acessar o formunlário de atualização ou a lista se não for atualizar 
     @RequestMapping("/{id}")
-    public ModelAndView getEstudanteById(@PathVariable(value = "id") Integer id, ModelAndView mav) {
+    public ModelAndView getMedicoById(@PathVariable(value = "id") Integer id, ModelAndView mav) {
         Optional<Medico> opMedico = medicoRepository.findById(id);
         if (opMedico.isPresent()) {
             Medico medico = opMedico.get();
@@ -93,8 +89,6 @@ public class MedicoController {
     public ModelAndView updade(Medico medico, ModelAndView mav, RedirectAttributes redAttrs) {
         medicoRepository.save(medico);
         mav.addObject("medicos", medicoRepository.findAll());
-        //redAttrs.addFlashAttribute("succesMensagem", "Instituição atualizada com sucesso!");
-        //mav.setViewName("redirect:/estudantes");
         mav.addObject("succesMensagem", "Medico "+medico.getNome()+", atualizado com sucesso!");
         mav.setViewName("/medicos/listMedico"); 
         return mav;
