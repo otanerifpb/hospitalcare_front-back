@@ -23,23 +23,23 @@
             class="nav-item nav-link" th:href="@{/home}">
             Home
         </a>
-        <a sec:authorize="hasRole('ADMIN')" th:classappend="${menu == 'medicos'} ? 'active'"  
+        <a sec:authorize="hasRole('ADMIN')" th:classappend="${menu == 'medico'} ? 'active'"  
             class="nav-item nav-link" th:href="@{/medico}">
             Medicos
         </a>
-        <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'pacientes'} ? 'active'"  
+        <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'paciente'} ? 'active'"  
             class="nav-item nav-link" th:href="@{/paciente}">
             Pacientes
         </a>
-        <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'enfermeiros'} ? 'active'"  
+        <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'enfermeiro'} ? 'active'"  
             class="nav-item nav-link" th:href="@{/enfermeiro}">
             Enfermeiros
         </a>
-        <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'recepcionistas'} ? 'active'"  
+        <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'recepcionista'} ? 'active'"  
             class="nav-item nav-link" th:href="@{/recepcionista}">
             Recepcionistas
         </a>
-        <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'documentos'} ? 'active'"  
+        <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'documento'} ? 'active'"  
             class="nav-item nav-link" th:href="@{/documento}">
             Documentos
         </a>
