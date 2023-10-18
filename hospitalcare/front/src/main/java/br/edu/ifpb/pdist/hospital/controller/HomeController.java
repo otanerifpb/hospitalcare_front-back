@@ -13,6 +13,7 @@ public class HomeController {
         return "home";
     }
 
+    // Mapeamento para o index
      @RequestMapping("/home")
     public String showHomrPage(){
         return "index";
