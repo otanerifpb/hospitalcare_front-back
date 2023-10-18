@@ -53,7 +53,7 @@
                         <td th:text="${medico.Especialidade}" style="text-align: center;"></td>
                         <td th:text="${medico.Telefone}" style="text-align: center;"></td>
                         <td>
-                            <form th:action="@{/medicos/{id}(id=${medico.id})}" method="GET">
+                            <form th:action="@{/medico/{id}(id=${medico.id})}" method="GET">
                                 <button class="btn btn-outline-secondary btn-sm" type="submit" title="Editar">
                                     <img th:src="@{/imagens/editar.png}" alt="Editar"/> Editar
                                 </button>
