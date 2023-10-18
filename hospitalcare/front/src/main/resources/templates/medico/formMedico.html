@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    th:with="titulo1='Atualizar Médico', titulo2='Atualização de Médico'">
+    th:with="titulo1='Cadastrar Médico', titulo2='Cadastro de Médico'">
     <!-- layout:decorate="~{layout/layout}" -->
 <head>
     <meta th:insert="~{/fragments/head :: head(${titulo1})}">
@@ -15,14 +15,14 @@
 
     <div class="container">
         <div layout:fragment="content">
-            <form th:action="@{/medicos/update}" method="POST" th:object="${medico}">
+            <form th:action="@{/medico}" method="POST" th:object="${medico}">
                 <div th:replace="~{/fragments/body :: formMedico}"></div>
     
                 <button class="btn btn-outline-secondary btn-sm" type="submit" title="Salvar">
                     <img th:src="@{/imagens/salvar5.jpg}" alt="Salvar"/> Salvar
                 </button>
     
-                <a th:href="@{/medicos}">
+                <a th:href="@{/medico}">
                     <button class="btn btn-outline-secondary btn-sm" type="button" title="Voltar">
                         <img th:src="@{/imagens/voltar.png}" alt="Voltar"/> Voltar
                     </button>

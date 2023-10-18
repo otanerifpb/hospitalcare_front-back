@@ -24,23 +24,23 @@
             Home
         </a>
         <a sec:authorize="hasRole('ADMIN')" th:classappend="${menu == 'medicos'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/medicos}">
+            class="nav-item nav-link" th:href="@{/medico}">
             Medicos
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'pacientes'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/pacientes}">
+            class="nav-item nav-link" th:href="@{/paciente}">
             Pacientes
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'enfermeiros'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/enfermeiros}">
+            class="nav-item nav-link" th:href="@{/enfermeiro}">
             Enfermeiros
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'recepcionistas'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/recepcionistas}">
+            class="nav-item nav-link" th:href="@{/recepcionista}">
             Recepcionistas
         </a>
         <a sec:authorize="hasRole('USER','ADMIN')" th:classappend="${menu == 'documentos'} ? 'active'"  
-            class="nav-item nav-link" th:href="@{/documentos}">
+            class="nav-item nav-link" th:href="@{/documento}">
             Documentos
         </a>
     </div>
@@ -50,7 +50,7 @@
     <!-- th:action="@{/auth/logout}" method="POST"> -->
     <!-- <form>th:action="@{/obras}</form>" -->
     <a th:fragment="sair(titulo)" class="form-inline my-2 my-lg-0" 
-            th:href="@{/obras}" method="POST">
+            th:href="@{/obra}" method="POST">
         <span sec:authorize="isAuthenticated()" sec:authentication="name" 
             style="margin-right: 3px; font-size: 0.8em;"></span>
         <button class="btn btn-outline-secondary my-0 my-sm-0" type="submit" title="Sair">

@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/recepcionistas")
+@RequestMapping("/recepcionista")
 public class RecepcionistaController {
     
     // Ativa o menu Recepcionista na barra de navegação
     @ModelAttribute("menu")
     public String activeMenu(){
-        return "recepcionistas";
+        return "recepcionista";
     }
 
     // Rota para acessar a lista pelo menu

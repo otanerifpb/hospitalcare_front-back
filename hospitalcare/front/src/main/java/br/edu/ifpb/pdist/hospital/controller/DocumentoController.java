@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/documentos")
+@RequestMapping("/documento")
 public class DocumentoController {
     
     // Ativa o menu Documento na barra de navegação
     @ModelAttribute("menu")
     public String activeMenu(){
-        return "documentos";
+        return "documento";
     }
 
     // Rota para acessar a lista pelo menu

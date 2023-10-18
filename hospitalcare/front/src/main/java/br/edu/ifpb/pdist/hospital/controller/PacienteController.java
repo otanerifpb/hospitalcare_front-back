@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.edu.ifpb.pdist.hospital.model.Medico;
 import br.edu.ifpb.pdist.hospital.model.Paciente;
 import br.edu.ifpb.pdist.hospital.repository.PacienteRepository;
 
 @Controller
-@RequestMapping("/pacientes")
+@RequestMapping("/paciente")
 public class PacienteController {
 
     @Autowired
@@ -27,30 +26,30 @@ public class PacienteController {
     // Ativa o menu Paciente na barra de navegação
     @ModelAttribute("menu")
     public String activeMenu(){
-        return "pacientes";
+        return "paciente";
     }
     
     // Rota para acessar a lista pelo menu
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView listAll(ModelAndView mav) {
         List<Paciente> opPacientes = pacienteRepository.findAll();
-        mav.addObject("pacientes", opPacientes);
-        mav.setViewName("pacientes/listPaciente");
+        mav.addObject("paciente", opPacientes);
+        mav.setViewName("paciente/listPaciente");
         return mav;
     } 
 
     // Rota para acessar a lista ao usar o REDIRECT
     @RequestMapping()
     public String listAll(Model model) {
-        model.addAttribute("pacientes", pacienteRepository.findAll());
-        return "pacientes/listPaciente";
+        model.addAttribute("paciente", pacienteRepository.findAll());
+        return "paciente/listPaciente";
     }
 
     // Rota para acessar o formunário
     @RequestMapping("/formPaciente")
     public ModelAndView getFormEstu(Paciente paciente, ModelAndView mav) {
         mav.addObject("paciente", paciente);
-        mav.setViewName("pacientes/formPaciente");
+        mav.setViewName("paciente/formPaciente");
         return mav;
     }
 
@@ -63,9 +62,9 @@ public class PacienteController {
             mav.setViewName("redirect:/pacientes");
         } else {
             pacienteRepository.save(paciente);
-            mav.addObject("pacientes", pacienteRepository.findAll());
+            mav.addObject("paciente", pacienteRepository.findAll());
             mav.addObject("succesMensagem", "Paciente cadastrado com sucesso!");
-            mav.setViewName("pacientes/listPaciente");
+            mav.setViewName("paciente/listPaciente");
         }
         return mav;
     }
@@ -77,10 +76,10 @@ public class PacienteController {
         if (opPaciente.isPresent()) {
             Paciente paciente = opPaciente.get();
             mav.addObject("paciente", paciente);
-            mav.setViewName("pacientes/formUpPaciente");
+            mav.setViewName("paciente/formUpPaciente");
         } else {
             mav.addObject("errorMensagem", "Paciente  não encontrado.");
-            mav.setViewName("pacientes/listPaciente");
+            mav.setViewName("paciente/listPaciente");
         }
         return mav;
     }
@@ -89,9 +88,9 @@ public class PacienteController {
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public ModelAndView updade(Paciente paciente, ModelAndView mav, RedirectAttributes redAttrs) {
         pacienteRepository.save(paciente);
-        mav.addObject("pacientes", pacienteRepository.findAll());
+        mav.addObject("paciente", pacienteRepository.findAll());
         mav.addObject("succesMensagem", "Paciente "+paciente.getNome()+", atualizado com sucesso!");
-        mav.setViewName("/pacientes/listPaciente"); 
+        mav.setViewName("/paciente/listPaciente"); 
         return mav;
     }
 
@@ -106,7 +105,7 @@ public class PacienteController {
         } else {
             redAttrs.addFlashAttribute("errorMensagem", "Paciente Não encontrado!!");
         }
-        mav.setViewName("redirect:/pacientes");
+        mav.setViewName("redirect:/paciente");
         return mav;
     }
 }

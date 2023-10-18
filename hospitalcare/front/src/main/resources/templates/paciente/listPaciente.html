@@ -17,15 +17,15 @@
         <div th:replace="~{/fragments/body :: mensagens}"></div>
 
         <div layout:fragment="content">
-            <form th:action="@{/pacientes/formPaciente}" method="GET">
+            <form th:action="@{/paciente/formPaciente}" method="GET">
                 <button class="btn btn-outline-secondary" type="submit" title="Novo">
                     <img th:src="@{/imagens/novo1.png}" alt="Novo"/> Novo
                 </button>
             </form>
         </div>
 
-        <div th:if="${not #lists.isEmpty(pacientes)}">
-            <div th:text="'Total: ' + ${#lists.size(pacientes)} + ' registro(s)'" 
+        <div th:if="${not #lists.isEmpty(paciente)}">
+            <div th:text="'Total: ' + ${#lists.size(paciente)} + ' registro(s)'" 
                 style="text-align: right; color: gray; font-size: 0.85em;">
             </div></br>
 
@@ -46,7 +46,7 @@
                 </div>
 
                 <tbody>
-                    <tr th:each="paciente : ${pacientes}">
+                    <tr th:each="paciente : ${paciente}">
                         <td th:text="${paciente.nome != null and paciente.nome != '' ?paciente.nome: 'Anônimo'}"></td>
                         <td th:text="${paciente.CPF}" style="text-align: center;"></td>
                         <td th:text="${paciente.sexo}" style="text-align: center;"></td>
@@ -56,7 +56,7 @@
                         <td th:text="${paciente.Telefone}" style="text-align: center;"></td>
                         <td class="text-center">
                             <div th:if="${not #lists.isEmpty(paciente.anamnese)}">
-                                <form th:action="@{/pacientes/{id}/listAnaminese(id=${paciente.id})}" method="GET">
+                                <form th:action="@{/paciente/{id}/listAnaminese(id=${paciente.id})}" method="GET">
                                     <button class="btn btn-outline-secondary btn-sm " type="submit" title="Declaração">
                                         <img th:src="@{/imagens/documento.png}" alt="Anamnese"/>
                                     </button>
@@ -71,7 +71,7 @@
                         </td>
                         <td class="text-center">
                             <div th:if="${not #lists.isEmpty(paciente.prontuario)}">
-                                <form th:action="@{/pacientes/{id}/listProntuarios(id=${paciente.id})}" method="GET">
+                                <form th:action="@{/paciente/{id}/listProntuarios(id=${paciente.id})}" method="GET">
                                     <button class="btn btn-outline-secondary btn-sm " type="submit" title="Declaração">
                                         <img th:src="@{/imagens/documento.png}" alt="Prontuário"/>
                                     </button>
@@ -85,14 +85,14 @@
                             </div>
                         </td>
                         <td>
-                            <form th:action="@{/pacientes/{id}(id=${paciente.id})}" method="GET">
+                            <form th:action="@{/paciente/{id}(id=${paciente.id})}" method="GET">
                                 <button class="btn btn-outline-secondary btn-sm" type="submit" title="Editar">
                                     <img th:src="@{/imagens/editar.png}" alt="Editar"/> Editar
                                 </button>
                             </form>
                         </td>
                         <td>
-                            <form th:action="@{/pacientes/{id}/delete(id=${paciente.id})}">
+                            <form th:action="@{/paciente/{id}/delete(id=${paciente.id})}">
                                 <button class="btn btn-outline-secondary btn-sm" type="submit" title="Excluir">
                                     <img th:src="@{/imagens/lixeira1.jpg}" alt="Excluir"/> Excluir
                                 </button>
@@ -106,7 +106,7 @@
 
         <div th:unless="${not #lists.isEmpty(pacientes)}"></br>
             <table class="table table-striped table-hover">
-                <div th:replace="~{/pacientes/listPaciente :: cabpac}"></div>
+                <div th:replace="~{/paciente/listPaciente :: cabpac}"></div>
             </table>
 
             <h3 class="aviso">

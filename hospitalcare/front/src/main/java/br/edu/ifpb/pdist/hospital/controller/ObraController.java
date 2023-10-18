@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/obras")
+@RequestMapping("/obra")
 public class ObraController {
 
     // Rota para acessar a lista pelo menu

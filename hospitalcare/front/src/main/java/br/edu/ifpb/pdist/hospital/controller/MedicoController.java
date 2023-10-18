@@ -17,7 +17,7 @@ import br.edu.ifpb.pdist.hospital.model.Medico;
 import br.edu.ifpb.pdist.hospital.repository.MedicoRepository;
 
 @Controller
-@RequestMapping("/medicos")
+@RequestMapping("/medico")
 public class MedicoController {
 
     @Autowired
@@ -26,30 +26,30 @@ public class MedicoController {
     // Ativa o menu Médico na barra de navegação
     @ModelAttribute("menu")
     public String activeMenu(){
-        return "medicos";
+        return "medico";
     }
 
     // Rota para acessar a lista pelo menu
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView listAll(ModelAndView mav) {
         List<Medico> opMedicos = medicoRepository.findAll();
-        mav.addObject("medicos", opMedicos);
-        mav.setViewName("medicos/listMedico");
+        mav.addObject("medico", opMedicos);
+        mav.setViewName("medico/listMedico");
         return mav;
     } 
 
     // Rota para acessar a lista ao usar o REDIRECT
     @RequestMapping()
     public String listAll(Model model) {
-        model.addAttribute("medicos", medicoRepository.findAll());
-        return "medicoes/listMedico";
+        model.addAttribute("medico", medicoRepository.findAll());
+        return "medico/listMedico";
     }
 
     // Rota para acessar o formunário
     @RequestMapping("/formMedico")
     public ModelAndView getFormEstu(Medico medico, ModelAndView mav) {
         mav.addObject("medico", medico);
-        mav.setViewName("medicos/formMedico");
+        mav.setViewName("medico/formMedico");
         return mav;
     }
 
@@ -59,12 +59,12 @@ public class MedicoController {
         Optional<Medico> opCRM = medicoRepository.findByCRM(medico.getCRM());
         if (opCRM.isPresent()) {
             redAttrs.addFlashAttribute("errorMensagem", "Médico já cadastrada no sistema!!");
-            mav.setViewName("redirect:/medicos");
+            mav.setViewName("redirect:/medico");
         } else {
             medicoRepository.save(medico);
-            mav.addObject("medicos", medicoRepository.findAll());
+            mav.addObject("medico", medicoRepository.findAll());
             mav.addObject("succesMensagem", "Médico cadastrado com sucesso!");
-            mav.setViewName("medicos/listMedico");
+            mav.setViewName("medico/listMedico");
         }
         return mav;
     }
@@ -76,10 +76,10 @@ public class MedicoController {
         if (opMedico.isPresent()) {
             Medico medico = opMedico.get();
             mav.addObject("medico", medico);
-            mav.setViewName("medicos/formUpMedico");
+            mav.setViewName("medico/formUpMedico");
         } else {
             mav.addObject("errorMensagem", "Médico  não encontrado.");
-            mav.setViewName("medicos/listMedico");
+            mav.setViewName("medico/listMedico");
         }
         return mav;
     }
@@ -88,9 +88,9 @@ public class MedicoController {
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public ModelAndView updade(Medico medico, ModelAndView mav, RedirectAttributes redAttrs) {
         medicoRepository.save(medico);
-        mav.addObject("medicos", medicoRepository.findAll());
+        mav.addObject("medico", medicoRepository.findAll());
         mav.addObject("succesMensagem", "Medico "+medico.getNome()+", atualizado com sucesso!");
-        mav.setViewName("/medicos/listMedico"); 
+        mav.setViewName("/medico/listMedico"); 
         return mav;
     }
 
@@ -105,7 +105,7 @@ public class MedicoController {
         } else {
             redAttrs.addFlashAttribute("errorMensagem", "Medico Não encontrado!!");
         }
-        mav.setViewName("redirect:/medicos");
+        mav.setViewName("redirect:/medico");
         return mav;
     }
 
