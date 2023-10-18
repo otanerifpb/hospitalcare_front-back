@@ -8,6 +8,6 @@ import br.edu.ifpb.pdist.hospital.model.Medico;
 
 public interface MedicoRepository  extends JpaRepository<Medico, Integer> {
 
-    Optional<Medico> findByCRM(String string);
+    Optional<Medico> findByCrm(String string);
 
 }

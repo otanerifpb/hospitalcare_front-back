@@ -56,7 +56,7 @@ public class MedicoController {
     // Rota para cadastrar um Médico no Sitema
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView save(Medico medico, ModelAndView mav, RedirectAttributes redAttrs) {
-        Optional<Medico> opCRM = medicoRepository.findByCRM(medico.getCRM());
+        Optional<Medico> opCRM = medicoRepository.findByCrm(medico.getCrm());
         if (opCRM.isPresent()) {
             redAttrs.addFlashAttribute("errorMensagem", "Médico já cadastrada no sistema!!");
             mav.setViewName("redirect:/medico");

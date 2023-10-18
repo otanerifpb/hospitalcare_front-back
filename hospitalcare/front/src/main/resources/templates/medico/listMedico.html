@@ -46,7 +46,7 @@
                 <tbody>
                     <tr th:each="medico : ${medico}">
                         <td th:text="${medico.nome != null and medico.nome != '' ?medico.nome: 'Anônimo'}"></td>
-                        <td th:text="${medico.CRM}" style="text-align: center;"></td>
+                        <td th:text="${medico.Crm}" style="text-align: center;"></td>
                         <td th:text="${medico.sexo}" style="text-align: center;"></td>
                         <td th:text="${#dates.format(medico.dataNascimento, 'dd ''de'' MMMM ''de'' yyyy')}" 
                             style="text-align: center;"></td>

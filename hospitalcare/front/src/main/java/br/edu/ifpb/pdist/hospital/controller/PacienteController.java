@@ -56,7 +56,7 @@ public class PacienteController {
     // Rota para cadastrar um Paciente no Sitema
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView save(Paciente paciente, ModelAndView mav, RedirectAttributes redAttrs) {
-        Optional<Paciente> opCPF = pacienteRepository.findByCPF(paciente.getCPF());
+        Optional<Paciente> opCPF = pacienteRepository.findByCpf(paciente.getCpf());
         if (opCPF.isPresent()) {
             redAttrs.addFlashAttribute("errorMensagem", "Paciente já cadastrada no sistema!!");
             mav.setViewName("redirect:/pacientes");

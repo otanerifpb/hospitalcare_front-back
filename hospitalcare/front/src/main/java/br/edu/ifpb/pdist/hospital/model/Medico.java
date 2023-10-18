@@ -30,7 +30,7 @@ public class Medico implements Serializable {
     
     private String nome;
 
-    private String CRM;
+    private String crm;
 
     private String sexo;
 

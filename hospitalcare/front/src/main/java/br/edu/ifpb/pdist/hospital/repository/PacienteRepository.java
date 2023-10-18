@@ -8,6 +8,6 @@ import br.edu.ifpb.pdist.hospital.model.Paciente;
 
 public interface PacienteRepository extends JpaRepository<Paciente, Integer>{
 
-    Optional<Paciente> findByCPF(String string);
+    Optional<Paciente> findByCpf(String string);
     
 }

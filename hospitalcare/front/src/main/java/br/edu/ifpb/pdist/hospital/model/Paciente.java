@@ -31,7 +31,7 @@ public class Paciente implements Serializable {
 
     private String nome;
 
-    private String CPF;
+    private String cpf;
 
     private String sexo;
 
